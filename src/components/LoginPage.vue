@@ -1,25 +1,67 @@
 <template>
   <div id="LoginPage" class="d-flex flex-column mb-3">
-    <form>
-      <img class="mb-4" src="@/assets/Logo.png" alt="" height="100" >
+    <form @submit="login">
+      <img class="mb-4" src="@/assets/Logo.png" alt="" height="100">
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Username" v-model="username"
+          autocomplete="off" required>
         <label for="floatingInput">Username</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="password"
+          autocomplete="off" required>
         <label for="floatingPassword">Password</label>
       </div>
-
-      <button class="btn w-100 py-2" type="submit">Sign in</button>
+      <button class="btn w-100 py-2">Sign in</button>
+      <span v-if="loginError">아이디 또는 비밀번호가 틀렸습니다.</span>
     </form>
 
   </div>
 </template>
 
 <script>
+import bcryptjs from 'bcryptjs';
+import axios from 'axios';
 export default {
   name: 'loginPage',
+  data() {
+    return {
+      username: "",
+      password: "",
+      loginError: false,
+    }
+  },
+  methods: {
+    // 로그인 기능
+    login: async function (e) {
+      e.preventDefault();
+      for (let element of e.target) {
+        element.disabled = true;
+      }
+      //비밀번호 해싱
+      const salt = await bcryptjs.genSalt(this.$store.state.saltRounds);
+      const hash = await bcryptjs.hash(this.password, salt);
+      //로그인 요청
+      axios.post(`${this.$store.state.apiURL}/auth/login`, { username: this.username, password: hash })
+        .then((res) => {
+          for (let element of e.target) {
+            element.disabled = false;
+          }
+          if (res.status_code == 200) {
+            this.$router.push("/Dashboard");
+          } else {
+            this.loginError = true;
+
+          }
+        })
+        .catch(() => {
+          for (let element of e.target) {
+            element.disabled = false;
+          }
+          this.loginError = true;
+        })
+    }
+  }
 }
 </script>
 
@@ -46,8 +88,13 @@ export default {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 #LoginPage>form>.form-floating:focus-within {
   z-index: 2;
+}
+
+#LoginPage>form>span {
+  color: #FF0032;
 }
 
 #LoginPage>form>button {
