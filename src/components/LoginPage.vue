@@ -39,8 +39,8 @@ export default {
         element.disabled = true;
       }
       //비밀번호 해싱
-      const salt = await bcryptjs.genSalt(this.$store.state.saltRounds);
-      const hash = await bcryptjs.hash(this.password, salt);
+      const hash = await bcryptjs.hash(this.password, this.$store.state.salt);
+      console.log(hash)
       //로그인 요청
       axios.post(`${this.$store.state.apiURL}/auth/login`, { username: this.username, password: hash })
         .then((res) => {

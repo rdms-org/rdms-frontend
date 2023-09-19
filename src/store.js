@@ -4,7 +4,7 @@ const store = createStore({
   state(){
     return {
       apiURL:"http://localhost:5000/api",
-      saltRounds:12,
+      salt:"$2a$12$Pzck2SUWG.WcYYmSno9gke",
     }
   },
 })
