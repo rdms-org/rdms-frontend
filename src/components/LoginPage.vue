@@ -1,7 +1,7 @@
 <template>
   <div id="LoginPage" class="d-flex flex-column mb-3">
     <form @submit="login">
-      <img class="mb-4" src="@/assets/Logo.png" alt="" height="100">
+      <img class="mb-4" src="@/assets/logo.png" alt="" height="100">
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="Username" v-model="username"
           autocomplete="off" required>
@@ -40,7 +40,6 @@ export default {
       }
       //비밀번호 해싱
       const hash = await bcryptjs.hash(this.password, this.$store.state.salt);
-      console.log(hash)
       //로그인 요청
       axios.post(`${this.$store.state.apiURL}/auth/login`, { username: this.username, password: hash })
         .then((res) => {
