@@ -47,7 +47,7 @@ export default {
           for (let element of e.target) {
             element.disabled = false;
           }
-          if (res.status_code == 200) {
+          if (res.status == 200) {
             this.$router.push("/Dashboard");
           } else {
             this.loginError = true;
