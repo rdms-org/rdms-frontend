@@ -40,14 +40,13 @@ export default {
       }
       //비밀번호 해싱
       const hash = await bcryptjs.hash(this.password, this.$store.state.salt);
-      console.log(hash)
       //로그인 요청
       axios.post(`${this.$store.state.apiURL}/auth/login`, { username: this.username, password: hash })
         .then((res) => {
           for (let element of e.target) {
             element.disabled = false;
           }
-          if (res.status == 200) {
+          if (res.data.message == "Success") {
             this.$router.push("/Dashboard");
           } else {
             this.loginError = true;
