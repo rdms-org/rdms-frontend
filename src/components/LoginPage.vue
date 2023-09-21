@@ -1,7 +1,7 @@
 <template>
   <div id="LoginPage" class="d-flex flex-column mb-3">
     <form @submit="login">
-      <img class="mb-4" src="@/assets/logo.png" alt="" height="100">
+      <img class="mb-4" src="@/assets/Logo.png" alt="" height="100">
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="Username" v-model="username"
           autocomplete="off" required>
