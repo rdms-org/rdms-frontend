@@ -14,8 +14,10 @@ const routes = [
       axios.get(`${store.state.apiURL}/auth/valid`)
         .then((res) => {
           if (res.data.message == "Success") {
+            store.state.userData = res.data.data
             next('/dashboard')
           }else{
+            store.state.userData = {}
             next()
           }
         })
@@ -57,5 +59,4 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
-
 export default router; 

@@ -55,15 +55,28 @@
         <li>
           <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
+        <li><a class="dropdown-item" @click="logout()">Sign out</a></li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'SideBar',
+  methods: {
+    logout:async function(){
+      axios.get(`${this.$store.state.apiURL}/auth/logout`)
+        .then(() => {
+          this.$router.go(0);
+        })
+        .catch(() => {
+          this.$router.go(0);
+        })
+    }
+  }
 }
 </script>
 
