@@ -1,21 +1,30 @@
 <template>
-    <div>
-      <NavBar></NavBar>
-      <router-view></router-view>
-    </div>
-  </template>
+  <div id="main" class="d-flex flex-nowrap">
+    <NavBar></NavBar>
+    <SideBar></SideBar>
+    <router-view></router-view>
+  </div>
+</template>
   
-  <script>
-  import NavBar from './NavBar.vue';
-  
-  export default {
-    name: 'AuthenticatedView',
-    components: {
-      NavBar,
-    }
+<script>
+import NavBar from './NavBar.vue';
+import SideBar from './SideBar.vue'
+
+export default {
+  name: 'AuthenticatedView',
+  components: {
+    NavBar,
+    SideBar
   }
-  </script>
+}
+</script>
   
-  <style>
-  </style>
+<style>
+#main {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+</style>
   
