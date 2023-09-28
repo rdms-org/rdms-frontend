@@ -1,10 +1,10 @@
 <template>
-  <div>네비게이션 바</div>
+  <div>디바이스 관리</div>
 </template>
 
 <script>
 export default {
-  name: 'NavBar',
+  name: 'DevicesPage',
 }
 </script>
 

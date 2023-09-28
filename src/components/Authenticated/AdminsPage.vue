@@ -1,10 +1,10 @@
 <template>
-  <div>대시보드 화면</div>
+  <div>관리자 정보</div>
 </template>
 
 <script>
 export default {
-  name: 'loginPage',
+  name: 'AdminsPage',
 }
 </script>
 

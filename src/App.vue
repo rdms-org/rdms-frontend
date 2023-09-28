@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+      <router-view></router-view>
 </template>
 
 <script>
@@ -20,7 +18,10 @@ export default {
 }
 
 body {
-  font-family: 'Pretendard-Regular';
   background-color: #F6F6F6;
+}
+body *{
+    font-family: 'Pretendard-Regular';
+
 }
 </style>
