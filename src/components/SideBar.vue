@@ -1,33 +1,43 @@
 <template>
   <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+    <router-link to="/dashboard">
+      <img src="@/assets/logo/primary_light.png" alt="" height="40">
+    </router-link>
+    <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <router-link to="/dashboard" class="nav-link" :class="{'active':$route.path == '/dashboard', 'text-white':$route.path != '/dashboard'}">
+        <router-link to="/dashboard" class="nav-link"
+          :class="{ 'active': $route.path == '/dashboard', 'text-white': $route.path != '/dashboard' }">
           Dashboard
         </router-link>
       </li>
       <li>
-        <router-link to="/devices" class="nav-link" :class="{'active':$route.path == '/devices', 'text-white':$route.path != '/devices'}">
+        <router-link to="/devices" class="nav-link"
+          :class="{ 'active': $route.path == '/devices', 'text-white': $route.path != '/devices' }">
           Devices
         </router-link>
       </li>
       <li>
-        <router-link to="/user" class="nav-link" :class="{'active':$route.path == '/users', 'text-white':$route.path != '/users'}">
+        <router-link to="/user" class="nav-link"
+          :class="{ 'active': $route.path == '/users', 'text-white': $route.path != '/users' }">
           Users
         </router-link>
       </li>
       <li>
-        <router-link to="/administrator" class="nav-link" :class="{'active':$route.path == '/admins', 'text-white':$route.path != '/admins'}">
+        <router-link to="/administrator" class="nav-link"
+          :class="{ 'active': $route.path == '/admins', 'text-white': $route.path != '/admins' }">
           Administrator
         </router-link>
       </li>
       <li>
-        <router-link to="/logs" class="nav-link" :class="{'active':$route.path == '/logs', 'text-white':$route.path != '/logs'}">
+        <router-link to="/logs" class="nav-link"
+          :class="{ 'active': $route.path == '/logs', 'text-white': $route.path != '/logs' }">
           Logs
         </router-link>
       </li>
       <li>
-        <router-link to="/info" class="nav-link" :class="{'active':$route.path == '/info', 'text-white':$route.path != '/info'}">
+        <router-link to="/info" class="nav-link"
+          :class="{ 'active': $route.path == '/info', 'text-white': $route.path != '/info' }">
           Info
         </router-link>
       </li>
@@ -69,8 +79,7 @@ export default {
   outline: 0;
 }
 
-#sidebar .active{
+#sidebar .active {
   background-color: #822DE2;
-
 }
 </style>

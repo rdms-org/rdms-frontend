@@ -1,19 +1,18 @@
 <template>
   <div id="main" class="d-flex flex-nowrap">
-    <NavBar></NavBar>
     <SideBar></SideBar>
-    <router-view></router-view>
+    <div id="contents">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
   
 <script>
-import NavBar from './NavBar.vue';
 import SideBar from './SideBar.vue'
 
 export default {
   name: 'AuthenticatedView',
   components: {
-    NavBar,
     SideBar
   }
 }
@@ -25,6 +24,10 @@ export default {
   max-height: 100vh;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+#contents{
+  padding: 16px;
 }
 </style>
   
