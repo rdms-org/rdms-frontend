@@ -48,7 +48,7 @@ export default {
           }
           if (res.data.message == "Success") {
             this.$store.commit("setUserData",res.data.data)
-            this.$router.push("/Dashboard");
+            this.$router.push("/dashboard");
           } else {
             this.loginError = true;
 
