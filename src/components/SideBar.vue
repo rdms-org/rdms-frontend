@@ -47,7 +47,7 @@
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
         data-bs-toggle="dropdown" aria-expanded="false">
         <img src="@/assets/icon/user.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>Username</strong>
+        <strong>{{$store.state.userData.name}}</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
