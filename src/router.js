@@ -9,39 +9,11 @@ import DevicesPage from "./components/DevicesPage";
 const routes = [
   {
     path: "/",
-    component: LoginPage,
-    beforeEnter: (to,from,next) => {
-      axios.get(`${store.state.apiURL}/auth/valid`)
-        .then((res) => {
-          if (res.data.message == "Success") {
-            store.state.userData = res.data.data
-            next('/dashboard')
-          }else{
-            store.state.userData = {}
-            next()
-          }
-        })
-        .catch(() => {
-          return false;
-        })
-    }
+    component: LoginPage
   },
   {
     path: "/",
     component: AuthenticatedView,
-    beforeEnter: (to,from,next) => {
-      axios.get(`${store.state.apiURL}/auth/valid`)
-        .then((res) => {
-          if (res.data.message == "Success") {
-            next()
-          }else{
-            next('/')
-          }
-        })
-        .catch(() => {
-          return false;
-        })
-    },
     children: [
       {
         path: "dashboard",
@@ -59,4 +31,25 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+router.beforeEach((to,from,next)=>{
+  axios.get(`${store.state.apiURL}/auth/valid`)
+  .then((res) => {
+    if (res.data.message == "Success") {
+      if(to.path=='/'){
+        next('/dashboard')
+      }else{
+        next()
+      }
+    }else{
+      if(to.path=='/'){
+        next()
+      }else{
+        next('/')
+      }
+    }
+  })
+  .catch(() => {
+    return false;
+  })
+})
 export default router; 
