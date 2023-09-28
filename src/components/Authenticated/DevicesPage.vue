@@ -1,10 +1,10 @@
 <template>
-  <div>대시보드 화면</div>
+  <div>디바이스 관리</div>
 </template>
 
 <script>
 export default {
-  name: 'loginPage',
+  name: 'DevicesPage',
 }
 </script>
 

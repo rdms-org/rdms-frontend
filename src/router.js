@@ -3,8 +3,14 @@ import store from "@/store.js";
 import axios from 'axios';
 import LoginPage from "./components/LoginPage";
 import AuthenticatedView from "./components/AuthenticatedView"
-import DashboardPage from "./components/DashboardPage";
-import DevicesPage from "./components/DevicesPage";
+import DashboardPage from "./components/Authenticated/DashboardPage";
+import DevicesPage from "./components/Authenticated/DevicesPage";
+import UsersPage from "./components/Authenticated/UsersPage";
+import LogsPage from "./components/Authenticated/LogsPage";
+import InfoPage from "./components/Authenticated/InfoPage";
+import AdminsPage from "./components/Authenticated/AdminsPage";
+import AuditsPage from "./components/Authenticated/AuditsPage";
+
 
 const routes = [
   {
@@ -22,6 +28,26 @@ const routes = [
       {
         path: "devices",
         component: DevicesPage,
+      },
+      {
+        path: "users",
+        component: UsersPage,
+      },
+      {
+        path: "logs",
+        component: LogsPage,
+      },
+      {
+        path: "info",
+        component: InfoPage,
+      },
+      {
+        path: "admins",
+        component: AdminsPage,
+      },
+      {
+        path: "audits",
+        component: AuditsPage,
       }
     ],
   },

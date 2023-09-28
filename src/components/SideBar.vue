@@ -18,15 +18,9 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/user" class="nav-link"
+        <router-link to="/users" class="nav-link"
           :class="{ 'active': $route.path == '/users', 'text-white': $route.path != '/users' }">
           Users
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/administrator" class="nav-link"
-          :class="{ 'active': $route.path == '/admins', 'text-white': $route.path != '/admins' }">
-          Administrator
         </router-link>
       </li>
       <li>
@@ -41,7 +35,21 @@
           Info
         </router-link>
       </li>
+      <hr v-if="$store.state.userData.root_permission">
+      <li v-if="$store.state.userData.root_permission">
+        <router-link to="/admins" class="nav-link"
+          :class="{ 'active': $route.path == '/admins', 'text-white': $route.path != '/admins' }">
+          Admins
+        </router-link>
+      </li>
+      <li v-if="$store.state.userData.root_permission">
+        <router-link to="/audits" class="nav-link"
+          :class="{ 'active': $route.path == '/audits', 'text-white': $route.path != '/audits' }">
+          Audits
+        </router-link>
+      </li>
     </ul>
+    
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
