@@ -1,5 +1,7 @@
 <template>
-      <router-view></router-view>
+  <div id="main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -11,17 +13,17 @@ export default {
 
 <style>
 @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight:400;
-    font-style: normal;
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
-body {
+#main{
   background-color: #F6F6F6;
 }
-body *{
-    font-family: 'Pretendard-Regular';
 
+body * {
+  font-family: 'Pretendard-Regular';
 }
 </style>
