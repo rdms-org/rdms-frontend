@@ -1,7 +1,7 @@
 <template>
-  <div id="main" class="d-flex flex-nowrap">
+  <div id="main" class="d-flex">
     <SideBar></SideBar>
-    <div id="contents">
+    <div id="contents" class="flex-grow-1">
       <router-view></router-view>
     </div>
   </div>
@@ -21,13 +21,13 @@ export default {
 <style>
 #main {
   height: 100vh;
-  max-height: 100vh;
-  overflow-x: auto;
-  overflow-y: hidden;
+  background-color: #F6F6F6;
 }
 
+
 #contents{
-  padding: 16px;
+  width: calc(100vw - 280px);
+  padding: 16px;  
 }
 </style>
   

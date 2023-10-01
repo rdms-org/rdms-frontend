@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+  <div id="sidebar" class="d-flex flex-column p-3 text-bg-dark" style="width: 280px;">
     <router-link to="/dashboard">
       <img src="@/assets/logo/primary_light.png" alt="" height="40">
     </router-link>
