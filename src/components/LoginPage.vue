@@ -1,21 +1,23 @@
 <template>
-  <div id="LoginPage" class="d-flex flex-column mb-3">
-    <form @submit="login">
-      <img class="mb-4" src="@/assets/logo/primary_dark.png" alt="" height="100">
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Username" v-model="username"
-          autocomplete="off" required>
-        <label for="floatingInput">Username</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="password"
-          autocomplete="off" required>
-        <label for="floatingPassword">Password</label>
-      </div>
-      <button class="btn w-100 py-2">Sign in</button>
-      <span v-if="loginError">아이디 또는 비밀번호가 틀렸습니다.</span>
-    </form>
+  <div id="LoginBackground">
+    <div id="LoginPage" class="d-flex flex-column mb-3">
+      <form @submit="login">
+        <img class="mb-4" src="@/assets/logo/primary_dark.png" alt="" height="100">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Username" v-model="username"
+            autocomplete="off" required>
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="password"
+            autocomplete="off" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button class="btn w-100 py-2">Sign in</button>
+        <span v-if="loginError">아이디 또는 비밀번호가 틀렸습니다.</span>
+      </form>
 
+    </div>
   </div>
 </template>
 
@@ -47,7 +49,7 @@ export default {
             element.disabled = false;
           }
           if (res.data.message == "Success") {
-            this.$store.commit("setUserData",res.data.data)
+            this.$store.commit("setUserData", res.data.data)
             this.$router.push("/dashboard");
           } else {
             this.loginError = true;
@@ -66,6 +68,10 @@ export default {
 </script>
 
 <style>
+#LoginBackground{
+  background-color: #F6F6F6;
+}
+
 #LoginPage {
   width: 460px;
   position: absolute;
