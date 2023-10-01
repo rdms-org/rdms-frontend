@@ -3,7 +3,7 @@
     <span>Dashboard</span>
 
     <div class="slot_group row">
-      <div class="col-md-3 slot">
+      <div class="col-lg-3 col-md-6 col-sm-12 slot">
         <div class="container_fluid">
           <p class="title">대여 현황</p>
           <p class="value">8/10</p>
@@ -12,26 +12,26 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 slot">
+      <div class="col-lg-3 col-md-6 col-sm-12 slot">
         <div class="container_fluid">
           <p class="title">경고 알림</p>
           <p class="value">2개</p>
         </div>
       </div>
-      <div class=" col-md-3 slot">
+      <div class="col-lg-3 col-md-6 col-sm-12 slot">
         <div class="container_fluid">
           <p class="title">반납 대기중</p>
           <p class="value">1개</p>
         </div>
       </div>
-      <div class="col-md-3 slot">
+      <div class="col-lg-3 col-md-6 col-sm-12 slot">
         <div class="container_fluid">
           <p class="title">최근 작업</p>
           <p class="value">0개</p>
         </div>
       </div>
     </div>
-    <div class="col-md-12 flex-grow-1 calendar_slot">
+    <div class="col-12 flex-grow-1 calendar_slot">
       <calendarBlock class="container_fluid">
       </calendarBlock>
     </div>
