@@ -56,6 +56,7 @@ export default {
 #dashboard>span {
   font-size: 30px;
   height: auto;
+  display: block;
 }
 
 #dashboard .slot{
