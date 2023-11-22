@@ -1,26 +1,24 @@
 <template>
-    <div class="modal fade" id="otpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">OTP authentication</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Result</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="showOTP">
-                        <span>OTP 인증</span>
-                        <br>
-                        <h1 v-for="(digit,i) in $store.state.OTP['otp']" :key="i">{{digit}}</h1>    
-                        <div id="otpTime">
-                            <div class="progress" role="progressbar">
-                                <div class="progress-bar" style="width: 80%"></div>
-                            </div>
-                            <span>남은시간 180초</span>
+                    <span v-if="this.$store.state.otpResult.message == 'Fail'">OTP인증에 실패하였습니다. 다시 시도해주세요</span>
+                    <div v-if="this.$store.state.otpResult.message == 'Success'">
+                        <div v-if="this.$store.state.otp.type == 'add'">
+                            <h4>기기 등록을 완료하였습니다</h4>
+                            <span>UUID: {{ this.$store.state.otpResult.data.uuid }}</span><br>
+                            <span>기기명: {{ this.$store.state.otpResult.data.name }}</span><br>
+                            <span>등록일자: {{ this.$store.state.otpResult.data.creation_time }}</span><br>
                         </div>
-                        <span>유효시간 내에 위의 OTP 인증번호를 입력하세요</span>
-
                     </div>
+
+
 
                 </div>
                 <div class="modal-footer">
@@ -33,33 +31,8 @@
   
 <script>
 export default {
-    name: 'OTPModal'
+    name: 'ResultModal'
 }
 </script>
   
-<style>
-#otpModal #showOTP {
-    text-align: center;
-    padding: 0 15%;
-}
-
-#otpModal #showOTP>h1 {
-    display: inline-block;
-    margin: 20px 5px;
-    padding: 5px;
-    width: 50px;
-    height: 60px;
-    border: 1px #DCDCDC solid;
-    border-radius: 5px;
-
-}
-
-#otpModal #showOTP>#otpTime {
-    text-align: right;
-
-}
-
-#otpModal #showOTP .progress-bar {
-    background-color: #822DE2;
-}
-</style>
+<style></style>

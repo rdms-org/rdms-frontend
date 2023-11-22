@@ -8,7 +8,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form @submit="genDeviceAddOTP" >
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Device Name</label>
                             <input v-model="deviceName" type="text" class="form-control">
@@ -36,7 +36,8 @@ export default {
         }
     },
     methods: {
-        async genDeviceAddOTP() {
+        async genDeviceAddOTP(evt) {
+            evt.preventDefault();
             const result = await this.$store.dispatch("genOTP", { "type": "add", "data": { "name": this.deviceName, "admin": this.$store.state.userData.username } })
             if(result){
                 document.querySelector("#otpModalTrigger").click()

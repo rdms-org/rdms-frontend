@@ -1,9 +1,10 @@
 <template>
   <div id="devices" class="container-fluid">
-    
+
     <span>Devices</span>
     <div class="menu">
-      <button type="button" class="btn btn-violet" data-bs-toggle="modal" data-bs-target="#addDeviceModal">+ Add Device</button>
+      <button type="button" class="btn btn-violet" data-bs-toggle="modal" data-bs-target="#addDeviceModal">+ Add
+        Device</button>
     </div>
     <div class="infoTable table-responsive small">
       <table class="table">
@@ -22,7 +23,7 @@
           <tr v-for="(device, i) in $store.state.deviceData" :key="i">
             <td>{{ device.name }}</td>
             <td>{{ getDateformat(device.creation_time) }}</td>
-            <td>관리중</td>
+            <td>보관중</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -33,23 +34,26 @@
         </tbody>
       </table>
     </div>
-    <add-device-modal/>
-    <OTPModal/>
+    <addDeviceModal />
+    <OTPModal />
+    <ResultModal />
   </div>
 </template>
 
 <script>
-  import AddDeviceModal from "./Devices/AddDeviceModal.vue";
-  import OTPModal from "./Devices/OTPModal.vue";
+import AddDeviceModal from "./Devices/AddDeviceModal.vue";
+import OTPModal from "./Devices/OTPModal.vue";
+import ResultModal from "./Devices/ResultModal.vue";
 
 export default {
   name: 'DevicesPage',
   components: {
     AddDeviceModal,
-    OTPModal
+    OTPModal,
+    ResultModal
   },
   mounted() {
-    this.$store.commit("setDeviceData")
+    this.$store.dispatch("getDeviceData")
   },
   methods: {
     // 시간 변경
