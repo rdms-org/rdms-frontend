@@ -36,21 +36,21 @@
     </div>
     <addDeviceModal />
     <OTPModal />
-    <ResultModal />
+    <DeviceResultModal />
   </div>
 </template>
 
 <script>
 import AddDeviceModal from "./Devices/AddDeviceModal.vue";
 import OTPModal from "./Devices/OTPModal.vue";
-import ResultModal from "./Devices/ResultModal.vue";
+import DeviceResultModal from "./Devices/DeviceResultModal.vue";
 
 export default {
   name: 'DevicesPage',
   components: {
     AddDeviceModal,
     OTPModal,
-    ResultModal
+    DeviceResultModal
   },
   mounted() {
     this.$store.dispatch("getDeviceData")

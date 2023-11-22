@@ -49,7 +49,7 @@ export default {
             element.disabled = false;
           }
           if (res.data.message == "Success") {
-            this.$store.commit("setUserData", res.data.data)
+            this.$store.commit("setClientData", res.data.data)
             this.$router.push("/dashboard");
           } else {
             this.loginError = true;

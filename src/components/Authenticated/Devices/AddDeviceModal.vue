@@ -38,7 +38,7 @@ export default {
     methods: {
         async genDeviceAddOTP(evt) {
             evt.preventDefault();
-            const result = await this.$store.dispatch("genOTP", { "type": "add", "data": { "name": this.deviceName, "admin": this.$store.state.userData.username } })
+            const result = await this.$store.dispatch("genOTP", { "type": "add", "data": { "name": this.deviceName, "admin": this.$store.state.clientData.username } })
             if(result){
                 document.querySelector("#otpModalTrigger").click()
             }

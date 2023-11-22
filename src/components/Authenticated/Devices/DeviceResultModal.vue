@@ -31,7 +31,7 @@
   
 <script>
 export default {
-    name: 'ResultModal'
+    name: 'DeviceResultModal'
 }
 </script>
   

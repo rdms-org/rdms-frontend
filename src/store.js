@@ -6,25 +6,29 @@ const store = createStore({
     return {
       apiURL: "/api",
       salt: "$2a$12$Pzck2SUWG.WcYYmSno9gke",
-      userData: {},
+      clientData: {},
       deviceData: [],
+      userData: [],
       otp: {},
-      otpResult:{},
+      otpResult: {},
 
     }
   },
   mutations: {
-    setUserData(state, data) {
-      state.userData = data
+    setClientData(state, data) {
+      state.clientData = data
     },
-    setOTP(state,data){
+    setOTP(state, data) {
       state.otp = data
     },
-    setOTPResult(state,data){
+    setOTPResult(state, data) {
       state.otpResult = data
     },
-    setDeviceData(state,data) {
+    setDeviceData(state, data) {
       state.deviceData = data
+    },
+    setUserData(state, data) {
+      state.userData = data
     },
 
   },
@@ -33,7 +37,7 @@ const store = createStore({
       return axios.post(`${this.state.apiURL}/auth/otp/gen`, data)
         .then((res) => {
           if (res.data.message == "Success") {
-            this.commit("setOTP",res.data.data)
+            this.commit("setOTP", res.data.data)
             return true
           } else {
             return false
@@ -44,11 +48,26 @@ const store = createStore({
           return false
         })
     },
-    getDeviceData(){
+    getDeviceData() {
       axios.get(`${this.state.apiURL}/devices`)
         .then((res) => {
           if (res.data.message == "Success") {
-            this.commit("setDeviceData",res.data.data)
+            this.commit("setDeviceData", res.data.data)
+            return true
+          } else {
+            return false
+
+          }
+        })
+        .catch(() => {
+          return false
+        })
+    },
+    getUserData() {
+      axios.get(`${this.state.apiURL}/users`)
+        .then((res) => {
+          if (res.data.message == "Success") {
+            this.commit("setUserData", res.data.data)
             return true
           } else {
             return false

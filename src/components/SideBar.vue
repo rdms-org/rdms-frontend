@@ -35,14 +35,14 @@
           Info
         </router-link>
       </li>
-      <hr v-if="$store.state.userData.root_permission">
-      <li v-if="$store.state.userData.root_permission">
+      <hr v-if="$store.state.clientData.root_permission">
+      <li v-if="$store.state.clientData.root_permission">
         <router-link to="/admins" class="nav-link"
           :class="{ 'active': $route.path == '/admins', 'text-white': $route.path != '/admins' }">
           Admins
         </router-link>
       </li>
-      <li v-if="$store.state.userData.root_permission">
+      <li v-if="$store.state.clientData.root_permission">
         <router-link to="/audits" class="nav-link"
           :class="{ 'active': $route.path == '/audits', 'text-white': $route.path != '/audits' }">
           Audits
@@ -55,7 +55,7 @@
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
         data-bs-toggle="dropdown" aria-expanded="false">
         <img src="@/assets/icon/user.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>{{$store.state.userData.name}}</strong>
+        <strong>{{$store.state.clientData.name}}</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>

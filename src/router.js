@@ -61,7 +61,7 @@ router.beforeEach((to,from,next)=>{
   axios.get(`${store.state.apiURL}/auth/valid`)
   .then((res) => {
     if (res.data.message == "Success") {
-      store.state.userData = res.data.data
+      store.state.clientData = res.data.data
       if(to.path=='/'){
         next('/dashboard')
       }else{
