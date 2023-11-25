@@ -53,7 +53,7 @@ export default {
     methods: {
         async addUser(evt) {
             evt.preventDefault();
-            console.log("test")
+            await this.$store.dispatch("addUser", { "name": this.userName, "student_number":this.userStudentID, "contacts":this.userContacts, "note":this.userNote })
             document.querySelector("#UserResultTrigger").click()
         }
     }

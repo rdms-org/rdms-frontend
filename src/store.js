@@ -71,7 +71,7 @@ const store = createStore({
       return axios.post(`${this.state.apiURL}/users`, data)
         .then((res) => {
           if (res.data.message == "Success") {
-            this.commit("setUserResult", res.data.data)
+            this.commit("setUserResult", res.data)
             return true
           } else {
             return false
