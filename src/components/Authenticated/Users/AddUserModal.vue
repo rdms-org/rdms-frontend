@@ -8,18 +8,30 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form @submit="genUserAddOTP">
+                    <form @submit="addUser">
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">User Name</label>
-                            <input v-model="UserName" type="text" class="form-control">
+                            <label for="recipient-name" class="col-form-label">이름</label>
+                            <input v-model="userName" type="text" class="form-control">
                         </div>
-                    </form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">학번</label>
+                            <input v-model="userStudentID" type="number" class="form-control">
+                        </div>
+                            <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">연락처</label>
+                            <input v-model="userContacts" type="text" class="form-control">
+                        </div>
+                            <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">비고(선택사항)</label>
+                            <input v-model="userNote" type="text" class="form-control">
+                        </div>
+                        </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" @click="addUser"
-                        :disabled="this.userName == ''">Next</button>
-                    <input type="hidden" id="UserResultTrigger" data-bs-toggle="modal" data-bs-target="#otpModal" />
+                        :disabled="this.userName == '' || this.userStudentID == '' || this.userContacts == ''">Add User</button>
+                    <input type="hidden" id="UserResultTrigger" data-bs-toggle="modal" data-bs-target="#userResultModal" />
 
                 </div>
             </div>
@@ -33,11 +45,15 @@ export default {
     data() {
         return {
             userName: "",
+            userStudentID:"",
+            userContacts:"",
+            userNote:""     
         }
     },
     methods: {
         async addUser(evt) {
             evt.preventDefault();
+            console.log("test")
             document.querySelector("#UserResultTrigger").click()
         }
     }

@@ -11,6 +11,7 @@ const store = createStore({
       userData: [],
       otp: {},
       otpResult: {},
+      addUserResult:{},
 
     }
   },
@@ -30,6 +31,9 @@ const store = createStore({
     setUserData(state, data) {
       state.userData = data
     },
+    setUserResult(state, data){
+      state.addUserResult = data
+    }
 
   },
   actions: {
@@ -53,6 +57,21 @@ const store = createStore({
         .then((res) => {
           if (res.data.message == "Success") {
             this.commit("setDeviceData", res.data.data)
+            return true
+          } else {
+            return false
+
+          }
+        })
+        .catch(() => {
+          return false
+        })
+    },
+    addUser(state, data){
+      return axios.post(`${this.state.apiURL}/users`, data)
+        .then((res) => {
+          if (res.data.message == "Success") {
+            this.commit("setUserResult", res.data.data)
             return true
           } else {
             return false

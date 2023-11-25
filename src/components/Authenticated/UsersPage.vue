@@ -18,18 +18,17 @@
         </thead>
         <tbody>
           <tr v-for="(user, i) in $store.state.userData" :key="i">
+            <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
-            <td>{{ getDateformat(user.creation_time) }}</td>
-            <td>보관중</td>
-            <td>-</td>
-            <td>-</td>
+            <td>{{ user.student_number }}</td>
+            <td>{{ user.contacts }}</td>
+            <td>{{ user.note }}</td>
           </tr>
 
         </tbody>
       </table>
     </div>
     <addUserModal />
-    <OTPModal />
     <UserResultModal />
   </div>
 </template>
