@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="deviceResultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -31,7 +31,13 @@
   
 <script>
 export default {
-    name: 'DeviceResultModal'
+    name: 'DeviceResultModal',
+    mounted() {
+        const deviceResultModal = document.querySelector('#deviceResultModal')
+        deviceResultModal.addEventListener('show.bs.modal', () => {
+            this.$store.dispatch("getDeviceData")
+        })
+    }
 }
 </script>
   

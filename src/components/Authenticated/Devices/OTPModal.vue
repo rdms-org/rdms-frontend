@@ -59,7 +59,6 @@ export default {
                     clearInterval(this.countDownInterval)
                     this.$store.commit("setOTPResult",res.data)
                     if(this.$store.state.otp != {}){
-                        this.$store.dispatch("getDeviceData")
                         document.querySelector("#resultModalTrigger").click()
                     }
                     

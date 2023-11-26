@@ -14,7 +14,7 @@
                             <h4>유저 등록을 완료하였습니다</h4>
                             <span>id: {{ this.$store.state.addUserResult.data.id }}</span><br>
                             <span>이름: {{ this.$store.state.addUserResult.data.name }}</span><br>
-                            <span>학번: {{ this.$store.state.addUserResult.data.student_id }}</span><br>
+                            <span>학번: {{ this.$store.state.addUserResult.data.student_number }}</span><br>
                             <span>연락처: {{ this.$store.state.addUserResult.data.contacts }}</span><br>
                             <span>비고: {{ this.$store.state.addUserResult.data.note }}</span><br>
                         </div>
@@ -33,7 +33,13 @@
   
 <script>
 export default {
-    name: 'UserResultModal'
+    name: 'UserResultModal',
+    mounted() {
+        const userResultModal = document.querySelector('#userResultModal')
+        userResultModal.addEventListener('show.bs.modal', () => {
+            this.$store.dispatch("getUserData")
+        })
+    }
 }
 </script>
   
